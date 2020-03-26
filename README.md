@@ -13,9 +13,9 @@ This tool leverages Python 3 and you must have 'Pillow' package installed.
 1) Installed the pre-req library and version of Python
 2) Run 'python icon_generator.py sample.jpeg' (Image with 1:1 aspect ration and formats png, jpg and jpeg supported)
 3) Ensure you have the "waiting.png" and "failed.png" files in the folder where you running the code
-4) Successful run will result in following files being created:
-  *connect_icon.png
-  *greyscale_connect_icon.png
-  *waiting_connect_icon.png
-  *failed_connect_icon.png
+4) Successful run will result in following files being created
+   i) connect_icon.png
+  ii)greyscale_connect_icon.png
+  iii)waiting_connect_icon.png
+  iv)failed_connect_icon.png
   
