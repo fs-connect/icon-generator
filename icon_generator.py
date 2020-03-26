@@ -24,7 +24,7 @@ def generate_base_16_16_png (filename):
 
 def generate_grayscale_png (img):
     img = img.convert('LA')
-    img.save("greyscale_connect_icon.png")
+    img.save("gray_connect_icon.png")
     return
 
 def generate_failed_png(img):
@@ -48,37 +48,38 @@ def generate_waitting_png(img):
             final_img.paste(img_waiting, (0,11))
             final_img.save("waiting_connect_icon.png", format="png")
         except:
-            print("Error: Unable to crate failed_connect.png verify base failed.png is present")
+            print("Error: Unable to crate waiting_connect.png verify base waiting.png is present")
 
 
 def main():
     try:
         path = sys.argv[1]
-        if (len(sys.argv) != 2):
-            print("Error: Must pass in exactly one argument")
-            return
-
-        if not os.path.exists(path):
-            print ("Error: No such file")
-            return
-
-        if path.lower().endswith(('.png', '.jpg', '.jpeg')):
-            img = generate_base_16_16_png(path)
-            if (img):
-                generate_grayscale_png(img)
-                generate_failed_png(img)
-                generate_waitting_png(img)
-            else:
-                print("Error: Failed to generate icons")
-                return
-
-
-        else:
-            print ("Invalid File type: icon generator can accept .png, .jpg, and .jpeg")
-            return
-
     except:
-        print ("Error: Exception")
+        print ("Error: Exception Must pass in the base image filename")
+    if (len(sys.argv) != 2):
+        print("Error: Must pass in exactly one argument")
+        return
+
+    if not os.path.exists(path):
+        print ("Error: No such file")
+        return
+
+    if path.lower().endswith(('.png', '.jpg', '.jpeg')):
+        img = generate_base_16_16_png(path)
+        if (img):
+            generate_grayscale_png(img)
+            generate_failed_png(img)
+            generate_waitting_png(img)
+        else:
+            print("Error: Failed to generate icons")
+            return
+
+
+    else:
+        print ("Invalid File type: icon generator can accept .png, .jpg, and .jpeg")
+        return
+
+
 
 
 if __name__ == "__main__":
